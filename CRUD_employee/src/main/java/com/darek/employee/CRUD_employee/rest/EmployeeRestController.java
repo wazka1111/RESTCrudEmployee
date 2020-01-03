@@ -27,6 +27,7 @@ public class EmployeeRestController {
     }
 
     //add mapping for GET /employees/{employeeId}
+    //@PathVariable - to parametr, który dodaje się do url. Jego nazwa musi być taka sama jak element w {}: employeeId
     @GetMapping("/employees/{employeeId}")
     public Employee getEmployee(@PathVariable int employeeId) {
         Employee employee = employeeService.findById(employeeId);
