@@ -24,6 +24,7 @@ public class EmployeeRestController {
     @GetMapping("/employees")
     public List<Employee> findAll() {
         return employeeService.findAll();
+        //return - kiedy obiekt jest zwracany, w tle Spring wykorzystuje Jaskson, który zamienia POJO na JSON
     }
 
     //add mapping for GET /employees/{employeeId}
@@ -35,6 +36,7 @@ public class EmployeeRestController {
             throw new RuntimeException("Employee id not exist in database: " + employeeId);
         }
         return employee;
+         //return - kiedy obiekt jest zwracany, w tle Spring wykorzystuje Jaskson, który zamienia POJO na JSON
     }
 
     //add mapping for POST - add new employee to database
@@ -44,6 +46,7 @@ public class EmployeeRestController {
         employee.setId(0);
         employeeService.save(employee);
         return employee;
+         //return - kiedy obiekt jest zwracany, w tle Spring wykorzystuje Jaskson, który zamienia POJO na JSON
     }
 
     //add maping for PUT
@@ -51,6 +54,7 @@ public class EmployeeRestController {
     public Employee updateEmployee(@RequestBody Employee employee) {
         employeeService.save(employee);
         return employee;
+         //return - kiedy obiekt jest zwracany, w tle Spring wykorzystuje Jaskson, który zamienia POJO na JSON
     }
 
     //add mapping for DELETE
@@ -63,5 +67,6 @@ public class EmployeeRestController {
         }
         employeeService.deleteEmployeeById(employeeId);
         return "Employee deleted with id: " + employeeId;
+         //return - kiedy obiekt jest zwracany, w tle Spring wykorzystuje Jaskson, który zamienia POJO na JSON
     }
 }
